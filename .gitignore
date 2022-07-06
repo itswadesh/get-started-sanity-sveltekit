@@ -1,0 +1,10 @@
+.DS_Store
+node_modules
+build
+prod
+.svelte-kit
+package
+.env
+.env.*
+src/lib/gql/*.ts
+.vercel
