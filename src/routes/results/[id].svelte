@@ -6,7 +6,7 @@
 <article>
   <main>
     <div class="flex items-center justify-between">
-      <h2 class="my-4 text-2xl font-bold">Result</h2>
+      <h2 class="my-4 text-2xl font-bold">Results</h2>
       <a
         href="/my"
         class="btn btn-ghost btn-sm mb-2 gap-2 normal-case md:btn-md lg:gap-3"
@@ -33,11 +33,15 @@
     {#await data}
       <p>...waiting</p>
     {:then data}
-      {#if data}
-        <div class="card bg-base-100 shadow-xl mb-4">
-          <div class="card-body">
-            <ResultTable result={data} />
-          </div>
+      {#if data.length}
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-2">
+          {#each data as result}
+            <div class="card bg-base-100 shadow-xl mb-4">
+              <div class="card-body">
+                <ResultTable {result} />
+              </div>
+            </div>
+          {/each}
         </div>
       {:else}
         <pre> No result found </pre>

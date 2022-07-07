@@ -1,13 +1,14 @@
 <div class="navbar bg-base-100">
-  <div class="flex-1">
-    <a class="btn btn-ghost text-xl normal-case" href="/my">Dashboard</a>
-    <!-- <a class="btn btn-ghost rounded px-4 py-2" href="/schools">Schools</a> -->
+  <div class="container  mx-auto ">
+    <div class="flex-1">
+      <a class="btn btn-ghost text-xl normal-case" href="/my">Dashboard</a>
+      <!-- <a class="btn btn-ghost rounded px-4 py-2" href="/schools">Schools</a> -->
 
-    <!-- <a class="btn btn-ghost rounded px-4 py-2" href="/tests">Tests</a> -->
-    <!-- <a class="btn btn-ghost rounded px-4 py-2" href="/results">Results</a> -->
-  </div>
-  <div class="flex-none">
-    <!-- <div class="dropdown-end dropdown">
+      <!-- <a class="btn btn-ghost rounded px-4 py-2" href="/tests">Tests</a> -->
+      <!-- <a class="btn btn-ghost rounded px-4 py-2" href="/results">Results</a> -->
+    </div>
+    <div class="flex-none">
+      <!-- <div class="dropdown-end dropdown">
       <label tabindex="0" class="btn btn-circle btn-ghost">
         <div class="indicator">
           <svg
@@ -39,40 +40,41 @@
         </div>
       </div>
     </div> -->
-    <div class="dropdown-end dropdown">
-      <label tabindex="0" class="avatar btn btn-circle btn-ghost">
-        <div class="w-10 rounded-full">
-          <img src="https://placeimg.com/80/80/people" />
-        </div>
-      </label>
-      <ul
-        tabindex="0"
-        class="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
-      >
-        <!-- <li>
+      <div class="dropdown-end dropdown">
+        <label tabindex="0" class="avatar btn btn-circle btn-ghost">
+          <div class="w-10 rounded-full">
+            <img src="https://placeimg.com/80/80/people" />
+          </div>
+        </label>
+        <ul
+          tabindex="0"
+          class="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
+        >
+          <!-- <li>
           <a class="justify-between">
             Profile
             <span class="badge">New</span>
           </a>
         </li> -->
-        <li>
-          <a class="" href="/schools/students">Students</a>
-        </li>
-        <li>
-          <a class="" href="/schools/subjects">Subjects</a>
-        </li>
-        <li>
-          <a class="" href="/schools/class">Class</a>
-        </li>
-        <li>
-          <a class="" href="/schools/section">Section</a>
-        </li>
-        <li>
-          <a class="" href="/schools/tests"> Setup Tests </a>
-        </li>
-        <!-- <li><a>Settings</a></li> -->
-        <!-- <li><a>Logout</a></li> -->
-      </ul>
+          <li>
+            <a class="" href="/schools/students">Students</a>
+          </li>
+          <li>
+            <a class="" href="/schools/subjects">Subjects</a>
+          </li>
+          <li>
+            <a class="" href="/schools/class">Class</a>
+          </li>
+          <li>
+            <a class="" href="/schools/section">Section</a>
+          </li>
+          <li>
+            <a class="" href="/schools/tests"> Setup Tests </a>
+          </li>
+          <!-- <li><a>Settings</a></li> -->
+          <!-- <li><a>Logout</a></li> -->
+        </ul>
+      </div>
     </div>
   </div>
 </div>

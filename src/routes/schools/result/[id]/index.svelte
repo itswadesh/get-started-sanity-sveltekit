@@ -5,7 +5,8 @@
 
   export let oneTest, data
   let fetching = [false]
-  async function markChanged({ result, _id: student, marks }, ix) {
+  async function markChanged({ result, _id: student }, ix) {
+    console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz', result)
     try {
       const doc = {
         _type: 'result',
@@ -18,11 +19,11 @@
           _type: 'reference',
           _ref: student,
         },
-        marks: +marks,
+        marks: +result?.marks,
       }
       fetching[ix] = true
-      const resultRes = await sanity.createOrReplace(doc)
-      console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz', resultRes)
+      if (result?._id) await sanity.createOrReplace(doc)
+      else await sanity.create(doc)
     } catch (e) {
       console.log('eeeeeeeeeeeeeeeeeeee', e)
     } finally {
@@ -93,13 +94,14 @@
                       on:submit|preventDefault={() => markChanged(student, ix)}
                     >
                       <input
-                        bind:value={student.marks}
+                        bind:value={student.result.marks}
                         type="number"
                         class="input input-bordered w-full max-w-xs"
                         placeholder="Score"
                       />
                       <button
-                        class="btn btn-square {fetching[ix] ? 'loading' : ''}"
+                        class="btn {fetching[ix] ? 'loading' : ''}"
+                        tabindex={-1}
                       >
                         save
                       </button>

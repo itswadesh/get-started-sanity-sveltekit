@@ -46,6 +46,7 @@
                     <th>Name</th>
                     <th>Phone</th>
                     <th>Address</th>
+                    <th>School</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -56,6 +57,7 @@
                       <td>{student.name}</td>
                       <td>{student.phone}</td>
                       <td>{student.address}</td>
+                      <td>{student.school?.name}</td>
                     </tr>
                   {/each}
                 </tbody>

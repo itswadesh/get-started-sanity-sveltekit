@@ -21,15 +21,26 @@
     }
     const doc = {
       _type: 'test',
-      exam,
-      subject,
-      classs,
-      section,
+      exam: {
+        _type: 'reference',
+        _ref: exam,
+      },
+      subject: {
+        _type: 'reference',
+        _ref: subject,
+      },
+      classs: {
+        _type: 'reference',
+        _ref: classs,
+      },
+      section: {
+        _type: 'reference',
+        _ref: section,
+      },
       totalMarks,
     }
     const res = await sanity.create(doc)
     goto(`/schools/tests`)
-    console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz', res)
   }
 </script>
 
