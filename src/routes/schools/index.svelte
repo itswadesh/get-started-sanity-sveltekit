@@ -4,16 +4,19 @@
 
 <article>
   <main>
-    <h2>Schools</h2>
+    <h1 class="mb-3 text-3xl font-bold">Schools</h1>
     {#await data}
       <p>...waiting</p>
     {:then data}
+      <!-- <pre>{JSON.stringify(data, null, 2)}</pre> -->
       {#if data}
         {#each data as school}
           <div class="card w-96 bg-base-100 shadow-xl image-full">
-            <figure>
-              <img src={school.banner?.asset.url} alt={school.name} />
-            </figure>
+            {#if school.banner?.asset.url}
+              <figure>
+                <img src={school.banner?.asset.url} alt={school.name} />
+              </figure>
+            {/if}
             <div class="card-body">
               <h2 class="card-title">{school.name}</h2>
               <p>{school.address}</p>

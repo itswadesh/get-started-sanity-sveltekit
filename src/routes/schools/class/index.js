@@ -1,9 +1,7 @@
 import { sanity } from '$lib/config'
 
 export async function get() {
-  const data = await sanity.fetch(
-    `*[_type == "school"]{_id,name,phone,address,banner {asset->{url}}}`
-  )
+  const data = await sanity.fetch(`*[_type == "classs"]{_id,name,sort}`)
 
   if (data) {
     return {

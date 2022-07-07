@@ -1,14 +1,13 @@
 <script>
-  import ResultTable from '$lib/ResultTable.svelte'
   export let data
 </script>
 
 <article>
   <main>
     <div class="flex items-center justify-between">
-      <h2 class="my-4 text-2xl font-bold">Result</h2>
+      <h1 class="mb-3 text-3xl font-bold">Sections</h1>
       <a
-        href="/results"
+        href="/"
         class="btn btn-ghost btn-sm mb-2 gap-2 normal-case md:btn-md lg:gap-3"
         ><svg
           class="h-6 w-6 fill-current md:h-8 md:w-8"
@@ -26,21 +25,40 @@
           >
             Prev
           </span>
-          <span>Menu</span>
+          <span>Dashboard</span>
         </div>
       </a>
     </div>
     {#await data}
       <p>...waiting</p>
     {:then data}
+      <!-- <pre>{JSON.stringify(data, null, 2)}</pre> -->
       {#if data}
-        <div class="card bg-base-100 shadow-xl mb-4">
-          <div class="card-body">
-            <ResultTable result={data} />
+        <div class="overflow-hidden ">
+          <!-- {JSON.stringify(data, null, 2)} -->
+          <div class="border-t border-gray-200">
+            <div class="overflow-x-auto">
+              <table class="table w-full">
+                <thead>
+                  <tr>
+                    <th>Sort</th>
+                    <th>Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {#each data as student, ix}
+                    <tr>
+                      <td>{student.sort}</td>
+                      <td>{student.name}</td>
+                    </tr>
+                  {/each}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       {:else}
-        <pre> No result found </pre>
+        <pre> No school found </pre>
       {/if}
     {:catch error}
       <p style="color: red">{error.message}</p>

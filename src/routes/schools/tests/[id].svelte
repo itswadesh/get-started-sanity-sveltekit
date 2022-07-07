@@ -33,7 +33,7 @@
   }
 </script>
 
-<div class="flex justify-between">
+<div class="flex items-center justify-between">
   <h1 class="text-3xl font-bold">Create New Test</h1>
   <a
     href="/schools/tests"
@@ -49,9 +49,10 @@
       /></svg
     >
     <div class="flex flex-col items-start">
-      <span class="hidden text-xs font-normal text-base-content/50 md:block"
-        >Prev</span
-      > <span>Menu</span>
+      <span class="hidden text-xs font-normal text-base-content/50 md:block">
+        Prev
+      </span>
+      <span>Tests</span>
     </div>
   </a>
 </div>
@@ -62,7 +63,7 @@
         type="date"
         bind:value={test.date}
         placeholder="Date"
-        class="input input-bordered w-full max-w-xs"
+        class="input input-group-sm input-bordered w-full max-w-xs"
       />
     </div>
     <div>

@@ -50,7 +50,7 @@
     <div class="flex flex-col items-start">
       <span class="hidden text-xs font-normal text-base-content/50 md:block"
         >Prev</span
-      > <span>Menu</span>
+      > <span>Tests</span>
     </div>
   </a>
 </div>
@@ -58,14 +58,14 @@
   <div class="card card-side mb-4 mr-4 bg-base-100 shadow-xl">
     <!-- {JSON.stringify(oneTest, null, 2)} -->
     <div class="card-body">
-      <h2 class="card-title">{oneTest.date}</h2>
-      <p>
-        {oneTest.exam?.examType?.name}<br />
-        {oneTest.subject?.name}<br />
-        {oneTest.class?.name}<br />
-        {oneTest.section?.name}<br />
-        {oneTest.totalMarks}
-      </p>
+      <h2 class="card-title">Exam Date: {oneTest.date}</h2>
+      <div class="grid grid-cols-3 gap-2">
+        <div>Exam: <b>{oneTest.exam?.examType?.name}</b></div>
+        <div>Class: <b>{oneTest.class?.name}</b></div>
+        <div>Section: <b>{oneTest.section?.name}</b></div>
+        <div>Subject: <b>{oneTest.subject?.name}</b></div>
+        <div>Total Marks: <b>{oneTest.totalMarks}</b></div>
+      </div>
     </div>
   </div>
 

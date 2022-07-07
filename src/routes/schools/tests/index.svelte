@@ -5,9 +5,12 @@
 {#if data}
   <div class="overflow-hidden">
     <!-- {JSON.stringify(data, null, 2)} -->
-    <a href={`/schools/tests/new`} class="btn mb-2 mr-2 mt-16">
-      Add New Test
-    </a>
+    <div class="flex items-center justify-between">
+      <h1 class="text-3xl font-bold">Tests</h1>
+      <a href={`/schools/tests/new`} class="btn mb-2 mr-2 mt-2">
+        Add New Test
+      </a>
+    </div>
     <div class="border-t border-gray-200">
       <div class="overflow-x-auto">
         <table class="table w-full">
@@ -28,7 +31,10 @@
                 <td>{test.subject?.name}</td>
                 <td>{test.totalMarks}</td>
                 <td>
-                  <a href={`/schools/result/${test._id}`}>Publish Result</a>
+                  <a
+                    class="btn btn-outline"
+                    href={`/schools/result/${test._id}`}>Publish Result</a
+                  >
                 </td>
               </tr>
             {/each}
