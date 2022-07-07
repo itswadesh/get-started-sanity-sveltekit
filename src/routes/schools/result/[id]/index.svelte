@@ -77,7 +77,8 @@
         <table class="table w-full">
           <thead>
             <tr>
-              <th>RegNo</th>
+              <th>Reg No</th>
+              <th>Roll No</th>
               <th>Name</th>
               <th>Marks</th>
               <th />
@@ -87,6 +88,7 @@
             {#each data as student, ix}
               <tr>
                 <td>{student.regNo}</td>
+                <td>{student.rollNo}</td>
                 <td>{student.name}</td>
                 <td>
                   <div class="input-group">

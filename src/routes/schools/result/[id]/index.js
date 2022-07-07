@@ -10,7 +10,7 @@ export async function get({ params }) {
     )
   )[0]
   let data = await sanity.fetch(
-    `*[_type == "student" && school._ref == "${test?.school?._id}" && class._ref in *[_id == "${test?.class?._id}"]._id]
+    `*[_type == "student" && school._ref == "${test?.school?._id}" && class._ref in *[_id == "${test?.class?._id}"]._id] | order(rollNo asc)
     {
       _id,name,regNo,rollNo,school,class->{name},section->{name},school->,
       "result": *[ _type == "result" && test._ref == "${params.id}"  && student._ref == ^._id ]{_id,marks}[0]

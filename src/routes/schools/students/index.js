@@ -17,7 +17,7 @@ export async function get() {
     )
   )[0]
   const data = await sanity.fetch(
-    `*[_type == "student" && school._ref == "${user?.school?._id}" ]{_id,regNo,rollNo,name,phone,address,school->{name}}`
+    `*[_type == "student" && school._ref == "${user?.school?._id}" ]|order(rollNo asc){_id,regNo,rollNo,name,phone,address,school->{name}}`
   )
 
   if (data) {

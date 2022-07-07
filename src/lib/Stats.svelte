@@ -31,7 +31,7 @@
         /></svg
       >
     </div>
-    <div class="stat-title">Total Results</div>
+    <div class="stat-title">Published Results</div>
     <div class="stat-value text-secondary">{results?.length}</div>
     <div class="stat-desc">Out of {tests?.length} tests</div>
   </div>
