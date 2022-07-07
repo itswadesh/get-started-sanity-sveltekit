@@ -1,10 +1,10 @@
 <div class="navbar bg-base-100">
   <div class="flex-1">
-    <a class="btn btn-ghost text-xl normal-case" href="/">Home</a>
+    <a class="btn btn-ghost text-xl normal-case" href="/my">Dashboard</a>
     <!-- <a class="btn btn-ghost rounded px-4 py-2" href="/schools">Schools</a> -->
 
     <!-- <a class="btn btn-ghost rounded px-4 py-2" href="/tests">Tests</a> -->
-    <a class="btn btn-ghost rounded px-4 py-2" href="/results">Results</a>
+    <!-- <a class="btn btn-ghost rounded px-4 py-2" href="/results">Results</a> -->
   </div>
   <div class="flex-none">
     <!-- <div class="dropdown-end dropdown">
@@ -40,7 +40,7 @@
       </div>
     </div> -->
     <div class="dropdown-end dropdown">
-      <label tabindex="0" class="avatar btn btn-ghost btn-circle">
+      <label tabindex="0" class="avatar btn btn-circle btn-ghost">
         <div class="w-10 rounded-full">
           <img src="https://placeimg.com/80/80/people" />
         </div>

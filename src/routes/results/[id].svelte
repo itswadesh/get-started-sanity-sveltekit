@@ -8,7 +8,7 @@
     <div class="flex items-center justify-between">
       <h2 class="my-4 text-2xl font-bold">Result</h2>
       <a
-        href="/results"
+        href="/my"
         class="btn btn-ghost btn-sm mb-2 gap-2 normal-case md:btn-md lg:gap-3"
         ><svg
           class="h-6 w-6 fill-current md:h-8 md:w-8"
@@ -26,7 +26,7 @@
           >
             Prev
           </span>
-          <span>Menu</span>
+          <span>Dashboard</span>
         </div>
       </a>
     </div>

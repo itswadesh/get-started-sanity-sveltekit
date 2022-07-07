@@ -1,12 +1,14 @@
 import { sanity } from '../lib/config'
 
 export async function get() {
-  const data = await sanity.fetch(`*[_type == "school"]`)
+  const schools = await sanity.fetch(`*[_type == "school"]`)
+  const tests = await sanity.fetch(`*[_type == "test"]`)
+  const students = await sanity.fetch(`*[_type == "student"]`)
 
-  if (data) {
+  if (schools) {
     return {
       status: 200,
-      body: data,
+      body: { schools, tests, students },
     }
   }
   return {

@@ -5,19 +5,26 @@
 
 {#if result}
   <div class="overflow-hidden ">
-    <div class="grid grid-cols-3 gap-2 px-4 py-5 sm:px-6">
-      <h3 class="text-lg font-medium leading-6 text-gray-900">
-        {studentData?.student?.name} - {studentData?.student?.regNo} - {studentData
-          ?.student?.rollNo}
-      </h3>
-      <div class="mt-1 max-w-2xl text-sm text-gray-500">
-        {studentData?.test?.exam?.examType?.name} - {studentData?.test?.exam
-          ?.school?.name}
+    <div class="grid grid-cols-2 gap-2 px-4 py-5 sm:px-6">
+      <div>
+        <h3 class="text-lg font-medium leading-6 text-gray-900">
+          {studentData?.student?.name} - {studentData?.student?.regNo} - {studentData
+            ?.student?.rollNo}
+        </h3>
+        <div class="mt-1 max-w-2xl text-sm text-gray-500">
+          {studentData?.test?.exam?.school?.name}
+          {studentData?.test?.exam?.examType?.name} exam
+        </div>
+        <div class="mt-1 max-w-2xl text-sm text-gray-500">
+          {studentData?.test?.date}
+        </div>
       </div>
-      <div class="mt-1 max-w-2xl text-sm text-gray-500">
-        {studentData?.student?.class?.name} - {studentData?.student?.section
-          ?.name} -
-        {studentData?.test?.subject?.name}
+      <div class="mt-1 max-w-2xl text-right text-sm text-gray-500">
+        Class: <b>
+          {studentData?.student?.class?.name}
+          ({studentData?.student?.section?.name})
+        </b> <br />
+        Subject: <b>{studentData?.test?.subject?.name}</b>
       </div>
     </div>
     <!-- {JSON.stringify(result, null, 2)} -->
