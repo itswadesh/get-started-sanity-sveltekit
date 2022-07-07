@@ -10,10 +10,10 @@ export async function get({ params }) {
   const data = await sanity.fetch(
     `*[_type == "student" && section._ref in *[_id == "${tests[0]?.section?._id}"]._id]
     {
-      _id,name,regNo,rollNo
+      _id,name,regNo,rollNo,school,section->{name},school->,
+      "result": *[ _type == "result"  && student._ref == ^._id ][0]
     }`
   )
-
   if (tests) {
     return {
       status: 200,

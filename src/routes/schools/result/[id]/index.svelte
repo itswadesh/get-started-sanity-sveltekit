@@ -1,19 +1,59 @@
 <script lang="ts">
+  import { onMount } from 'svelte'
+
   import { sanity } from '../../../../lib/config'
 
   export let oneTest, data
-  async function markChanged(student: string) {
-    console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz', student)
-    const doc = {
-      _type: 'result',
-      marks: 100,
-      student,
+  let fetching = [false]
+  async function markChanged({ result, _id: student, marks }, ix) {
+    try {
+      const doc = {
+        _type: 'result',
+        _id: result?._id,
+        test: {
+          _type: 'reference',
+          _ref: oneTest._id,
+        },
+        student: {
+          _type: 'reference',
+          _ref: student,
+        },
+        marks: +marks,
+      }
+      fetching[ix] = true
+      const resultRes = await sanity.createOrReplace(doc)
+      console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz', resultRes)
+    } catch (e) {
+      console.log('eeeeeeeeeeeeeeeeeeee', e)
+    } finally {
+      fetching[ix] = false
     }
-    const resultRes = await sanity.create(doc)
-    console.log('zzzzzzzzzzzzzzzzzzzzzzzzzzz', resultRes)
   }
+  onMount(async () => {})
 </script>
 
+<div class="flex justify-between">
+  <h1 class="text-3xl font-bold">Results</h1>
+  <a
+    href="/schools/tests"
+    class="btn btn-ghost btn-sm mb-2 gap-2 normal-case md:btn-md lg:gap-3"
+    ><svg
+      class="h-6 w-6 fill-current md:h-8 md:w-8"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      ><path
+        d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"
+      /></svg
+    >
+    <div class="flex flex-col items-start">
+      <span class="hidden text-xs font-normal text-base-content/50 md:block"
+        >Prev</span
+      > <span>Menu</span>
+    </div>
+  </a>
+</div>
 {#if oneTest}
   <div class="card card-side mb-4 mr-4 bg-base-100 shadow-xl">
     <!-- {JSON.stringify(oneTest, null, 2)} -->
@@ -43,19 +83,27 @@
             </tr>
           </thead>
           <tbody>
-            {#each data as student}
+            {#each data as student, ix}
               <tr>
                 <td>{student.regNo}</td>
                 <td>{student.name}</td>
                 <td>
                   <div class="input-group">
-                    <input
-                      type="text"
-                      class="input input-bordered w-full max-w-xs"
-                      placeholder="Score"
-                      on:change={() => markChanged(student._id)}
-                    />
-                    <button class="btn btn-square"> save </button>
+                    <form
+                      on:submit|preventDefault={() => markChanged(student, ix)}
+                    >
+                      <input
+                        bind:value={student.marks}
+                        type="number"
+                        class="input input-bordered w-full max-w-xs"
+                        placeholder="Score"
+                      />
+                      <button
+                        class="btn btn-square {fetching[ix] ? 'loading' : ''}"
+                      >
+                        save
+                      </button>
+                    </form>
                   </div>
                 </td>
               </tr>

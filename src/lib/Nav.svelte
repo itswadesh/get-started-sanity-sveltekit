@@ -5,11 +5,14 @@
     <a class="btn btn-ghost rounded px-4 py-2" href="/students">Students</a>
     <a class="btn btn-ghost rounded px-4 py-2" href="/subjects">Subjects</a>
     <a class="btn btn-ghost rounded px-4 py-2" href="/tests">Tests</a>
+    <a class="btn btn-ghost rounded px-4 py-2" href="/schools/tests"
+      >Teacher/Tests</a
+    >
     <a class="btn btn-ghost rounded px-4 py-2" href="/results">Results</a>
   </div>
   <div class="flex-none">
-    <div class="dropdown-end dropdown">
-      <label tabindex="0" class="btn btn-ghost btn-circle">
+    <!-- <div class="dropdown-end dropdown">
+      <label tabindex="0" class="btn btn-circle btn-ghost">
         <div class="indicator">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -39,9 +42,9 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="dropdown-end dropdown">
-      <label tabindex="0" class="avatar btn btn-ghost btn-circle">
+      <label tabindex="0" class="avatar btn btn-circle btn-ghost">
         <div class="w-10 rounded-full">
           <img src="https://placeimg.com/80/80/people" />
         </div>

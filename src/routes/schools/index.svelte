@@ -12,7 +12,7 @@
         {#each data as school}
           <div class="card w-96 bg-base-100 shadow-xl image-full">
             <figure>
-              <img src={school.banner.asset.url} alt={school.name} />
+              <img src={school.banner?.asset.url} alt={school.name} />
             </figure>
             <div class="card-body">
               <h2 class="card-title">{school.name}</h2>
